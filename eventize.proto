@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package eventize;
+
+message Event {
+  int32 id = 1;
+  string name = 2;
+  string description = 3;
+  string date = 4;
+}
+
+service EventService {
+  rpc CreateEvent(Event) returns (Event);
+  rpc ReadEvent(EventID) returns (Event);
+  rpc UpdateEvent(Event) returns (Event);
+  rpc DeleteEvent(EventID) returns (Event);
+}
+
+message EventID {
+  int32 id = 1;
+}
